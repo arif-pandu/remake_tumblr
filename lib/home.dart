@@ -5,51 +5,61 @@ import 'package:remake_tumblr/menu/profile.dart';
 import 'package:remake_tumblr/menu/search.dart';
 import 'package:remake_tumblr/theme/theme.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+
+  final pages = [
+    HomePage(),
+    SearchPage(),
+    NotificationPage(),
+    ProfilePage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         color: themeMainColor,
-        child: ProfilePage(),
+        child: pages[index],
       ),
       bottomNavigationBar: Container(
         height: 57,
         width: MediaQuery.of(context).size.width,
         color: themeMainColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              child: Icon(
-                Icons.home,
-                color: iconBottomColor,
-                size: 30,
-              ),
+        child: BottomNavigationBar(
+          onTap: (int index) => setState(() => this.index = index),
+          backgroundColor: themeMainColor,
+          currentIndex: index,
+          selectedFontSize: 0,
+          unselectedFontSize: 0,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: iconBottomColor,
+          iconSize: 30,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              label: "home",
+              icon: Icon(Icons.home_filled),
             ),
-            Container(
-              child: Icon(
-                Icons.search,
-                color: iconBottomColor,
-                size: 30,
-              ),
+            BottomNavigationBarItem(
+              label: "home",
+              icon: Icon(Icons.search),
             ),
-            Container(
-              child: Icon(
-                Icons.insert_emoticon,
-                color: iconBottomColor,
-                size: 30,
-              ),
+            BottomNavigationBarItem(
+              label: "home",
+              icon: Icon(Icons.emoji_emotions),
             ),
-            Container(
-              child: Icon(
-                Icons.person,
-                color: iconBottomColor,
-                size: 30,
-              ),
-            ),
+            BottomNavigationBarItem(
+              label: "Profile",
+              icon: Icon(Icons.person),
+            )
           ],
         ),
       ),

@@ -34,11 +34,23 @@ class BuildTagsCategory extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 BuildTagCategoryThumb(
-                    colorBack: Colors.deepOrange, tagCategory: "comic"),
+                  colorBack: Colors.deepOrange,
+                  tagCategory: "comic",
+                  tagCategory1: "kiminonawa.jpg",
+                  tagCategory2: "estella.jpg",
+                ),
                 BuildTagCategoryThumb(
-                    colorBack: Colors.deepPurple, tagCategory: "cats"),
+                  colorBack: Colors.deepPurple,
+                  tagCategory: "cats",
+                  tagCategory1: "cat.jpg",
+                  tagCategory2: "psyduck.jpg",
+                ),
                 BuildTagCategoryThumb(
-                    colorBack: Colors.brown, tagCategory: "music"),
+                  colorBack: Colors.brown,
+                  tagCategory: "amigurami",
+                  tagCategory1: "knitting_icecream.jpg",
+                  tagCategory2: "knitting_teddybear.jpg",
+                ),
               ],
             ),
           ),
@@ -53,10 +65,14 @@ class BuildTagCategoryThumb extends StatelessWidget {
     Key? key,
     required this.colorBack,
     required this.tagCategory,
+    required this.tagCategory1,
+    required this.tagCategory2,
   }) : super(key: key);
 
   final Color colorBack;
   final String tagCategory;
+  final String tagCategory1;
+  final String tagCategory2;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +107,8 @@ class BuildTagCategoryThumb extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
-                      image: AssetImage("assets/images/togepi.jpg"),
+                      image: AssetImage("assets/images/" + tagCategory1),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -103,7 +120,8 @@ class BuildTagCategoryThumb extends StatelessWidget {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5),
                     image: DecorationImage(
-                      image: AssetImage("assets/images/psyduck.jpg"),
+                      image: AssetImage("assets/images/" + tagCategory2),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

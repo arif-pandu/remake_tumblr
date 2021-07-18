@@ -41,51 +41,71 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Container(
-        color: themeMainColor,
-        child: ListView(
-          children: [
-            Column(
+      body: Stack(
+        children: [
+          Container(
+            color: themeMainColor,
+            child: ListView(
               children: [
-                BuildPost(
-                  writer: "nurunala",
-                  notes: "42",
-                  urlProfilePict: "nurunala.jpg",
-                  postText:
-                      "Serbasalah\nDalam serbasalah...\nKita lelah tapi tak menyerah.\nPatah tapi tak sudi kalah\n\nDalam ketidakpastian...\n\nKita terus melangkah walau terseok\nTetap berharap meski berkali terluka dan kecewa.\n\n\n22/6/2021",
-                ),
-                BuildPost(
-                  writer: "kuriawangunadi",
-                  notes: "25",
-                  urlProfilePict: "kurniawangunadi.jpg",
-                  postText:
-                      "Halo Dunia.\nApa kabar semuanya.\nSemoga baik-baik saja.",
-                ),
-                BuildTagsCategory(),
-                BuildPost(
-                  writer: "emesgeweerte",
-                  notes: "1",
-                  urlProfilePict: "msgwrt.jpg",
-                  postText: "Do I have to smile and pretend(?)",
-                ),
-                BuildPost(
-                  writer: "adminadminwattpad",
-                  notes: "2",
-                  urlProfilePict: "adminadminblog.jpg",
-                  postText:
-                      "So Here I Am.\nWriting a FanFiction about my favorite anime, gather around with some member from the anonymous Reddit forum.",
-                ),
-                BuildPost(
-                  writer: "lagiceritake",
-                  notes: "1",
-                  urlProfilePict: "cobaceritake.jpg",
-                  postText:
-                      "Saya gatau mau nulis apa\n\nTapi sekarang saya sudah tau mau nulis apa.\nHehehehe~~",
+                Column(
+                  children: [
+                    BuildPost(
+                      writer: "nurunala",
+                      notes: "42",
+                      urlProfilePict: "nurunala.jpg",
+                      postText:
+                          "Serbasalah\nDalam serbasalah...\nKita lelah tapi tak menyerah.\nPatah tapi tak sudi kalah\n\nDalam ketidakpastian...\n\nKita terus melangkah walau terseok\nTetap berharap meski berkali terluka dan kecewa.\n\n\n22/6/2021",
+                    ),
+                    BuildPost(
+                      writer: "kuriawangunadi",
+                      notes: "25",
+                      urlProfilePict: "kurniawangunadi.jpg",
+                      postText:
+                          "Halo Dunia.\nApa kabar semuanya.\nSemoga baik-baik saja.",
+                    ),
+                    BuildTagsCategory(),
+                    BuildPost(
+                      writer: "emesgeweerte",
+                      notes: "1",
+                      urlProfilePict: "msgwrt.jpg",
+                      postText: "Do I have to smile and pretend(?)",
+                    ),
+                    BuildPost(
+                      writer: "adminadminwattpad",
+                      notes: "2",
+                      urlProfilePict: "adminadminblog.jpg",
+                      postText:
+                          "So Here I Am.\nWriting a FanFiction about my favorite anime, gather around with some member from the anonymous Reddit forum.",
+                    ),
+                    BuildPost(
+                      writer: "lagiceritake",
+                      notes: "1",
+                      urlProfilePict: "cobaceritake.jpg",
+                      postText:
+                          "Saya gatau mau nulis apa\n\nTapi sekarang saya sudah tau mau nulis apa.\nHehehehe~~",
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
-        ),
+          ),
+          Align(
+            alignment: Alignment(0.9, 0.95),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Container(
+                height: 60,
+                width: 60,
+                color: Colors.blue,
+                child: Icon(
+                  Icons.edit,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
